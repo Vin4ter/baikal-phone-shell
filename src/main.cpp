@@ -98,8 +98,10 @@ QVariantList apps() {
 int main(int argc, char *argv[]) {
 
 
-    const int qt_scale_factor=1;
-    qputenv("QT_SCALE_FACTOR", "1");
+    const int qt_scale_factor=2;
+    const int device_halium = 1; //if hybris device 1 else mainline 0
+    if(device_halium==0){
+    qputenv("QT_SCALE_FACTOR", "2");
 
 
     qputenv("QT_QPA_PLATFORM", "xcb");
@@ -108,8 +110,10 @@ int main(int argc, char *argv[]) {
      qputenv("QT_IM_MODULE", "qtvirtualkeyboard");
      qputenv("QT_VIRTUALKEYBOARD_LAYOUT_PATH", "qrc:/layouts/");
       qputenv("QT_QAYLAND_CLIENT_BUFFER_INTEGRATION", "wayland-egl");
+    }else{
+     
+    }
 
-    const int device_halium = 0;
 
 
 
