@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>utils/settings.js</file>
+        <file>UI/StatusBar.qml</file>
+        <file>utils/utils.js</file>
+        <file>UI/LockScreen.qml</file>
+        <file>UI/Screen.qml</file>
+        <file>Chromes/WaylandChrome.qml</file>
+        <file>Chromes/XWaylandChrome.qml</file>
+        <file>UI/Setup.qml</file>
+        <file>icons/baikal.jpg</file>
+        <file>SettingSheet.qml</file>
+        <file>UI/SettingSheet.qml</file>
+        <file>UI/BgBlur.qml</file>
+        <file>SlideLiner.qml</file>
+        <file>UI/SlideLiner.qml</file>
+        <file>icons/network-wireless-warning-symbolic.svg</file>
+        <file>icons/wireless-0-symbolic.svg</file>
+        <file>icons/wireless-20-symbolic.svg</file>
+        <file>icons/wireless-40-symbolic.svg</file>
+        <file>icons/wireless-60-symbolic.svg</file>
+        <file>icons/wireless-symbolic.svg</file>
+        <file>UI/NetworkManager.qml</file>
+        <file>icons/1.svg</file>
+        <file>icons/airplanemode-on.svg</file>
+        <file>icons/arrow-left.svg</file>
+        <file>icons/arrow-right.svg</file>
+        <file>icons/audio-volume-high-symbolic.svg</file>
+        <file>icons/audio-volume-muted-symbolic.svg</file>
+        <file>icons/bluetooth-active-symbolic.svg</file>
+        <file>icons/cellNetwork.svg</file>
+        <file>icons/dock-control-panel.svg</file>
+        <file>icons/global-search-light.svg</file>
+        <file>icons/keyboard-symbolic.svg</file>
+        <file>icons/network-hotspot.svg</file>
+        <file>icons/system-shutdown.svg</file>
+        <file>icons/waiting-dark.svg</file>
+        <file>icons/waiting.svg</file>
+        <file>UI/VolumeUi.qml</file>
+    </qresource>
+</RCC>
