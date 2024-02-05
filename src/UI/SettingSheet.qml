@@ -29,92 +29,97 @@ Rectangle {
         anchors.leftMargin: 17
         anchors.rightMargin: 17
         model: settingsModel
-   delegate:
 
-       Rectangle {
-           id: qsDelegate
-           width: 208 * ((settingsGreed.width-10)/2/208)
-
-
-           height: 65 * ((settingsGreed.width-10)/2/208)
-           color: "#66ffffff"
-           radius: 18 * (settingsGreed.width/2/208)
-           property bool active: m_active
-             property string func: m_func
-           x: 17
-           y: -110
-           MouseArea{
-               anchors.fill: parent
-          onClicked: {
-              if(active == true){
-                       rectbg.color = "#b4c2e0"
-                              active = false
-                  if(func=="wlan"){
-                    nm.toggleWifi()
-                  }
-              }else{
-                      rectbg.color = "#5171ba"
-                  active = true
-                  if(func=="wlan"){
-                     nm.toggleWifi()
-                  }
-              }
+      delegate:
+          Rectangle {
+                     id: qsDelegate
+                     width: 208 * ((settingsGreed.width-10)/2/208)
 
 
-          }
-         }
-           Rectangle {
-               id: rectbg
-               color:
-                   if(active==false){
-                       return "#b4c2e0"
-                   }else{
-                       return "#5171ba"
+                     height: 65 * ((settingsGreed.width-10)/2/208)
+                     color: "#66ffffff"
+                     radius: 18 * (settingsGreed.width/2/208)
+                     property bool active: m_active
+                       property string func: m_func
+                     x: 17
+                     y: -110
+                     MouseArea{
+                         anchors.fill: parent
+                    onClicked: {
+                        if(active == true){
+                                 rectbg.color = "#b4c2e0"
+                                        active = false
+                            if(func=="wlan"){
+                              nm.toggleWifi()
+                            }
+                        }else{
+                                rectbg.color = "#5171ba"
+                            active = true
+                            if(func=="wlan"){
+                               nm.toggleWifi()
+                            }
+                        }
+
+
+                    }
                    }
+                     Rectangle {
+                         id: rectbg
+                         x: 8
+                         color:
+                             if(active==false){
+                                 return "#b4c2e0"
+                             }else{
+                                 return "#5171ba"
+                             }
 
 
-               radius: 255
-             //  anchors.left: parent.left
-             //  anchors.right: parent.right
-               anchors.top: parent.top
-               anchors.bottom: parent.bottom
-             //  anchors.rightMargin: 150
-               anchors.leftMargin: 8
-               anchors.bottomMargin: 7
-               anchors.topMargin: 4
-               width: rectbg.height
+                         radius: 255
+                       //  anchors.left: parent.left
+                       //  anchors.right: parent.right
+                         anchors.top: parent.top
+                         anchors.bottom: parent.bottom
+                       //  anchors.rightMargin: 150
+                         anchors.leftMargin: 8
+                         anchors.bottomMargin: 7
+                         anchors.topMargin: 7
+                         width: rectbg.height
 
 
-               Image {
-                   id: image
-                   anchors.fill: parent
+                         Image {
+                             id: image
+                             anchors.fill: parent
 
-                   anchors.leftMargin: 2
-                      anchors.rightMargin:2
-                   anchors.topMargin:2
-                       anchors.bottomMargin:2
+                             anchors.leftMargin: 10 * ((settingsGreed.width-10)/2/208)
+                             anchors.rightMargin:10 * ((settingsGreed.width-10)/2/208)
+                             anchors.topMargin:10 * ((settingsGreed.width-10)/2/208)
+                             anchors.bottomMargin:10 * ((settingsGreed.width-10)/2/208)
 
 
-                   source: m_image
-                        sourceSize.width:  image.width
-                    sourceSize.height: image.height
-                   fillMode: Image.PreserveAspectFit
-               }
-           }
+                             source: m_image
+                                  sourceSize.width:  image.width
+                              sourceSize.height: image.height
+                             fillMode: Image.PreserveAspectFit
+                         }
+                     }
 
-           Text {
-               id: text2
-               y: 24
-               height: 18
-               color: "#ffffff"
-               text: m_name
-               anchors.left: rectbg.right
-               anchors.right: parent.right
-               font.pixelSize: 13
-               anchors.leftMargin: 6
-               anchors.rightMargin: 0
-           }
-           }
+                     Text {
+                         id: text2
+                         color: "#ffffff"
+                         text: m_name
+                         anchors.left: rectbg.right
+                         anchors.right: parent.right
+                         anchors.top: parent.top
+                         anchors.bottom: parent.bottom
+                         font.pixelSize: 13 * ((settingsGreed.width-10)/2/208)
+                         verticalAlignment: Text.AlignVCenter
+                         anchors.bottomMargin: 26
+                         anchors.topMargin: 24
+                         anchors.leftMargin: 6
+                         anchors.rightMargin: 0
+                     }
+                     }
+
 
 
 

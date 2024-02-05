@@ -4,6 +4,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.14
 import QtWayland.Compositor 1.14
+import QtGraphicalEffects 1.12
 import Nemo.DBus 2.0
 
 import "../utils/settings.js" as Settings
