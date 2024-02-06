@@ -289,6 +289,7 @@ ListModel{
     }
 
     //  PropertyChanges { id: slide; target: settingSheet; y: 0 }
+   /*
     Text {
         id: text1
         x: 96
@@ -303,7 +304,7 @@ ListModel{
         anchors.topMargin: 499
         minimumPixelSize: 7
     }
-
+*/
 
     NumberAnimation {
         id: cslide

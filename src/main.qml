@@ -19,7 +19,6 @@ import QtWayland.Compositor 1.15
  import "utils/settings.js" as Settings
 import "utils/utils.js" as Utils
 import "UI"
-
 Item {
     property alias root: screen_loader.item
    property alias window: wayland_window.screen
@@ -73,7 +72,7 @@ Item {
                // visibility: "FullScreen"
                 Item {
                     id: state_handler
-                    state: (Settings.get("setup_done") === "true") ? "locked" : "setup"
+                    state: "locked"
                     states: [
                         State {
                             name: "locked"
@@ -100,22 +99,21 @@ Item {
                 visible: true
                 title: qsTr("Baikal - Phone Screen")
                 //base screen resolution for the setup.
-                width: (Settings.get("setup_done") === "true") ? Settings.get("screen_width") : 480
-                height: (Settings.get("setup_done") === "true") ? Settings.get("screen_height") : 800
+                width: 480
+                height: 800
                 id: wayland_window
 
-                Rectangle{
-                   id: bgStatusBar
-                   width: root.width
-                   height: statusbar.height
-                   y:0
-                   x:0
-                   color: "#373737"
 
-                }
                 Loader {
                     id: screen_loader
-                    source: (state_handler.state != "setup") ? "UI/Screen.qml" : "UI/Setup.qml"
+                    source: "UI/Screen.qml"
+                }
+                Rectangle{
+                    id: bgStatusBar
+                    width: root.width
+                    height: root.statusBar.height
+                    x:0
+                    y:0
                 }
             }
         }
@@ -146,6 +144,7 @@ Item {
         }
 
     }
+
 }
 
 

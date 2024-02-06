@@ -18,7 +18,7 @@ Rectangle {
 
     property var appPages: []
     property bool md: true //to home true
-    property int margin_padding: root.height / (50 * Settings.get("applications_per_row"))
+    property int margin_padding: root.height / (50 * 4)
     property alias statusbar: statusbar
      property alias slideLiner: slideLiner
     property alias volume_ui: volumeUi
@@ -140,7 +140,7 @@ Image {
                         horizontalCenter: parent.horizontalCenter
                     }
                     color: "white"
-                    font.pixelSize: parent.height / 25 * Settings.get("scaling_factor")
+                    font.pixelSize: parent.height / 25
                 }
             }
             Item {
@@ -155,8 +155,8 @@ Image {
                     height: screen_swipe_view.height - statusbar.height - margin_padding
 
                     model: appPages[0].length
-                    cellWidth: (screen_swipe_view.width - margin_padding) / Settings.get("applications_per_row")
-                    cellHeight: (screen_swipe_view.width - margin_padding) / Settings.get("applications_per_row")
+                    cellWidth: (screen_swipe_view.width - margin_padding) / 4
+                    cellHeight: (screen_swipe_view.width - margin_padding) / 4
                     focus: true
                   //  y: statusbar.height + 5 + searchField.height
 
@@ -170,8 +170,8 @@ Image {
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 Image {
-                                    width: app_rectangle.height / 2.5 * Settings.get("scaling_factor")
-                                    height: app_rectangle.height / 2.5 * Settings.get("scaling_factor")
+                                    width: app_rectangle.height / 2.5 * 1
+                                    height: app_rectangle.height / 2.5 * 1
                                     id: application_icon
                                     y: 20
                                     source: "image://icons/" + appPages[0][index][1]
@@ -181,7 +181,7 @@ Image {
                                     }
                                 }
                                 Text {
-                                    font.pixelSize: parent.height / 10 * Settings.get("scaling_factor")
+                                    font.pixelSize: parent.height / 10 * 1
                                     text: appPages[0][index][0]
                                     color: "#ffffff"
                                     anchors {
@@ -260,7 +260,7 @@ Image {
                     }
                     color: "#ffffff"
                     opacity: 0.4
-                    font.pixelSize: parent.height / 30 * Settings.get("scaling_factor")
+                    font.pixelSize: parent.height / 30 * 1
                 }
 
                 GridView {
@@ -286,15 +286,15 @@ Image {
                             anchors.bottom: app_switcher_surfaceItem.top
                             anchors.bottomMargin: margin_padding
                             text: (modelData.toplevel.title.toString().length > 16) ? modelData.toplevel.title.toString().substring(0,16) + "..." : modelData.toplevel.title
-                            font.pixelSize: root.height / 50 * Settings.get("scaling_factor")
+                            font.pixelSize: root.height / 50 *1
                         }
 
                         ShellSurfaceItem {
                             id: app_switcher_surfaceItem
                             inputEventsEnabled: false
                             shellSurface: modelData
-                            width: parent.width * Settings.get("scaling_factor")
-                            height: (parent.height - app_switcher_title.height) * Settings.get("scaling_factor")
+                            width: parent.width * 1
+                            height: (parent.height - app_switcher_title.height) *1
                             anchors.bottom: parent.bottom
                             sizeFollowsSurface: false
                             MouseArea {

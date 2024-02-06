@@ -60,7 +60,7 @@ Rectangle {
         anchors {
             verticalCenter: parent.verticalCenter
             right: battery_container.left
-            rightMargin: Settings.get("statusbar_screen_offset")
+            rightMargin: 3
         }
     }
 
@@ -103,10 +103,10 @@ Rectangle {
         anchors {
             right:  parent.right
             verticalCenter: parent.verticalCenter
-            rightMargin: Settings.get("statusbar_screen_offset")
+            rightMargin: 3
         }
         height: clock.height
-        width: (root.width > root.height) ? root.height / 55 * Settings.get("scaling_factor") : root.width / 55 * Settings.get("scaling_factor")
+        width: 8
         color: "#4fffffff"
         Rectangle {
             id: battery_level

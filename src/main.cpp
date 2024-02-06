@@ -98,13 +98,13 @@ QVariantList apps() {
 int main(int argc, char *argv[]) {
 
 
-    const int qt_scale_factor=2;
+    const int qt_scale_factor=1;
     const int device_halium = 0; //if hybris device 1 else mainline 0
     if(device_halium==0){
-    qputenv("QT_SCALE_FACTOR", "2");
+    qputenv("QT_SCALE_FACTOR", "1");
 
 
-    qputenv("QT_QPA_PLATFORM", "eglfs");
+    qputenv("QT_QPA_PLATFORM", "xcb");
     qputenv("LD_LIBRARY_PATH", "/usr/local/lib:$LD_LIBRARY_PATH");
   //  qputenv(" -plugin", "libinput");
      qputenv("QT_IM_MODULE", "qtvirtualkeyboard");

@@ -8,7 +8,7 @@ Item {
     StatusBar {
         id: statusbar
     }
-    Rectangle {
+    Image {
         Component.onCompleted: {
             Settings.getDatabase()
             Utils.handle_battery_monitor(statusbar.battery_container, statusbar.battery_level)
@@ -16,7 +16,13 @@ Item {
         id: lockscreen_image
         width: root.width
         height: root.height
-        color: "black"
+        visible: true
+
+            source: "../icons/baikal.jpg"
+            sourceSize.height: 1920
+            sourceSize.width: 1080
+
+            fillMode: Image.PreserveAspectCrop
     }
     Component.onCompleted: {
         console.log("rrrt!")
@@ -26,22 +32,22 @@ Item {
         id: lockscreen_time
         text: Qt.formatDateTime(new Date(), "HH:mm")
         color: 'white'
-        font.pixelSize: (parent.height / 30) * Settings.get("scaling_factor")
+        font.pixelSize: (parent.height / 30) * 1
         anchors {
             left: parent.left
             bottom: lockscreen_date.top
-            leftMargin: (parent.height / 26) * Settings.get("scaling_factor")
+            leftMargin: (parent.height / 26) * 1
         }
     }
     Text {
         id: lockscreen_date
         text: Qt.formatDateTime(new Date(), "dddd, MMMM d")
         color: 'white'
-        font.pixelSize: (parent.height / 50) * Settings.get("scaling_factor")
+        font.pixelSize: (parent.height / 50) * 1
         anchors {
             left: parent.left
             bottom: parent.bottom
-            margins: (parent.height / 26) * Settings.get("scaling_factor")
+            margins: (parent.height / 26) * 1
         }
     }
     Timer {
