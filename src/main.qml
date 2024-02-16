@@ -24,7 +24,7 @@ Item {
    property alias window: wayland_window.screen
     property real shellScaleFactor: 1
    property int volume: 50
-
+   property bool statusLock: false
 
     Connections {
            target:  globalParams
@@ -61,6 +61,15 @@ Item {
     function lock(){
     console.log("lock")
               root.volume_ui.visible = true;
+       if(state_handler=="locked"){
+           displayBrightness.setBrightness(100);
+           //statusLock=false
+           state_handler="normal"
+       }else{
+           state_handler="locked"
+           displayBrightness.setBrightness(0);
+           statusLock=true
+       }
     }
 
     WaylandCompositor {
@@ -118,30 +127,29 @@ Item {
             }
         }
         XdgShell {
-            onToplevelCreated: {
-              shellSurfaces.append({
-                    shellSurface: xdgSurface
-             })
-                // handleShellSurface(xdgSurface)
-                toplevel.sendResizing(Qt.size(wayland_window.width*shellScaleFactor, (wayland_window.height - root.statusbar.height - root.slideLiner.height)*shellScaleFactor ))
+              onToplevelCreated: {
+                shellSurfaces.append({shellSurface: xdgSurface});
+                  toplevel.sendResizing(Qt.size(wayland_window.width*shellScaleFactor, (wayland_window.height - root.statusbar.height - root.slideLiner.height)*shellScaleFactor ))
 
-            }
-        }
+              }
 
+          }
 
-        XdgDecorationManagerV1 {
-            preferredMode: XdgToplevel.ServerSideDecoration
-        }
+          XdgDecorationManagerV1 {
+              preferredMode: XdgToplevel.ServerSideDecoration
+          }
+
+          WlShell {
+              onWlShellSurfaceCreated: {
+                shellSurfaces.append({shellSurface: shellSurface});
+              }
+          }
 
         ListModel {
             id: shellSurfaces
         }
-        WlShell {
-            onWlShellSurfaceCreated: {
-            wayland_compositor.handleShellSurface(shellSurface)
 
-            }
-        }
+
 
     }
 

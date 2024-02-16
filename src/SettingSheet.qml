@@ -7,6 +7,7 @@ width: 480
 height: 800
 
 color: "#3c3b3b"
+property alias slide: slide
 
 MouseArea {
     id: settingSheet_area

@@ -66,7 +66,7 @@ QVariantList createAppsList(const QString &path) {
         AppReader reader(desktopFile, DESKTOP_ENTRY_STRING);
 
         AppInfo app;
-        app.exec = desktopFile.value("Exec").toString().remove("\"").remove(QRegExp(" %.")).remove(QRegExp(" --"));
+        app.exec = desktopFile.value("Exec").toString().remove("\"").remove(QRegExp(" %.")).remove(QRegExp(" --")).remove(QRegExp(" -b"));
       //  app.icon =
            app.icon = "/usr/share/icons/Papirus/48x48/apps/"+  desktopFile.value("Icon", "application").toString()+".svg";
         if (desktopFile.value("Name").toString().length() > 14){
@@ -105,11 +105,11 @@ int main(int argc, char *argv[]) {
 
 
     qputenv("QT_QPA_PLATFORM", "xcb");
-    qputenv("LD_LIBRARY_PATH", "/usr/local/lib:$LD_LIBRARY_PATH");
+   // qputenv("LD_LIBRARY_PATH", "/usr/local/lib:$LD_LIBRARY_PATH");
   //  qputenv(" -plugin", "libinput");
      qputenv("QT_IM_MODULE", "qtvirtualkeyboard");
      qputenv("QT_VIRTUALKEYBOARD_LAYOUT_PATH", "qrc:/layouts/");
-      qputenv("QT_QAYLAND_CLIENT_BUFFER_INTEGRATION", "wayland-egl");
+     // qputenv("QT_QAYLAND_CLIENT_BUFFER_INTEGRATION", "wayland-egl");
     }else{
      
     }

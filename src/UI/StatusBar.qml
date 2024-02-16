@@ -103,7 +103,7 @@ Rectangle {
         anchors {
             right:  parent.right
             verticalCenter: parent.verticalCenter
-            rightMargin: 3
+            rightMargin: 20
         }
         height: clock.height
         width: 8
@@ -134,10 +134,11 @@ Rectangle {
         }
         font.pixelSize: parent.height / 2
         anchors.verticalCenterOffset: 0
-        anchors.leftMargin: 8
+        anchors.leftMargin: 20
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left
+
         }
     }
 

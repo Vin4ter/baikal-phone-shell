@@ -33,6 +33,7 @@ Rectangle {
              nm.toggleWifi();
     }
 
+
     id: root
     visible: true
 
